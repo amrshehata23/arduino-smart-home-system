@@ -58,6 +58,29 @@ The goal of this project was to apply embedded systems and mechatronics concepts
 The Arduino Uno reads input signals from the keypad, temperature sensor, LDR sensor and motion sensor.  
 Based on these inputs, the Arduino controls different output components such as motors, LEDs and the fan.
 
+## Circuit Diagram
+
+The system connects multiple sensors and actuators to an Arduino Uno.
+
+```text
+                  +----------------------+
+                  |      Arduino Uno     |
+                  |                      |
+ LDR Sensor ------| A0                   |
+ LM35 Temp Sensor-| A1                   |
+ Motion Sensor ---| D2                   |
+                  |                      |
+ Keypad Rows -----| D3, D4, D5, D6       |
+ Keypad Columns --| D7, D12, D13, A2     |
+                  |                      |
+ Light LED -------| D8                   |
+ Fan Module ------| D9                   |
+ Door Servo ------| D10                  |
+ Garage Servo ----| D11                  |
+ Correct LED -----| A3                   |
+ Wrong LED -------| A4                   |
+                  +----------------------+
+
 ### Example Logic
 - If the correct password is entered, the door motor is activated.
 - If motion is detected, the garage motor opens the garage door.
