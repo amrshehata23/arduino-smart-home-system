@@ -43,6 +43,11 @@ The system demonstrates basic embedded systems and mechatronics concepts by conn
 - Basic electronics
 - Embedded systems concepts
 
+## Required Arduino Libraries
+
+- Keypad
+- Servo
+
 ## Components Used
 
 - Arduino Uno
@@ -90,8 +95,7 @@ Example logic:
  Correct LED -----| A3                   |
  Wrong LED -------| A4                   |
                   +----------------------+
-## Project Structure
-
+Project Structure
 arduino-smart-home-system/
 │
 ├── smart_home_system.ino
@@ -100,13 +104,26 @@ arduino-smart-home-system/
 ├── circuit_description.md
 └── .gitignore
 
+
 How to Run
+
 Open smart_home_system.ino in the Arduino IDE
+Install the required Arduino libraries:
+Keypad
+Servo
 Connect the components according to the circuit description
 Select the correct board, for example Arduino Uno
 Select the correct COM port
 Upload the code to the Arduino board
 Test the keypad, sensors, motors, LEDs, and fan
+
+Hardware Notes
+
+Use resistors with LEDs to protect them.
+Servo motors may need an external power supply if they require more current.
+The fan should be controlled through a transistor, relay, or motor driver module.
+The fan should not be powered directly from an Arduino digital pin.
+Connect all grounds together when using external power.
 Skills Demonstrated
 Embedded C/C++ programming
 Digital and analog input handling
@@ -117,6 +134,7 @@ Hardware and software integration
 Testing and troubleshooting of an embedded system
 
 What I Learned
+
 Programming an Arduino Uno using Embedded C/C++
 Reading values from analog and digital sensors
 Controlling LEDs, a fan, and servo motors
@@ -125,6 +143,7 @@ Building simple automation logic
 Connecting hardware and software in a mechatronic system
 
 Future Improvements
+
 Add LCD display for system status
 Improve password handling
 Add Bluetooth or Wi-Fi control
