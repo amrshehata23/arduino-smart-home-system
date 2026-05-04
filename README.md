@@ -1,12 +1,16 @@
 # Arduino Smart Home System
 
-This project is a physical Arduino-based smart home automation prototype developed as an academic mechatronics project. It combines sensors, LCD display output, servo motors, LEDs, a fan, a keypad, and embedded control logic inside a small smart-home model.
+## Overview
 
-The system demonstrates basic embedded systems and mechatronics concepts by connecting hardware and software components in one complete automation project.
+This project is a physical Arduino-based smart home automation prototype developed as an academic mechatronics project.
+
+It combines sensors, LCD display output, servo motors, LEDs, a fan, a keypad, and embedded control logic inside a small smart-home model. The system demonstrates basic embedded systems and mechatronics concepts by connecting hardware and software components in one complete automation project.
 
 ## Academic Context
 
-This project was developed as Project 1 during my Mechatronics Engineering studies at Mansoura University. The goal was to build a physical smart-home prototype and apply embedded systems, sensors, actuators, and automation logic in a practical mechatronic system.
+This project was developed as Project 1 during my Mechatronics Engineering studies at Mansoura University.
+
+The goal was to build a physical smart-home prototype and apply embedded systems, sensors, actuators, and automation logic in a practical mechatronic system.
 
 ## Main Features
 
@@ -14,9 +18,9 @@ This project was developed as Project 1 during my Mechatronics Engineering studi
 
 - A keypad is used to enter a password
 - If the correct password is entered, the door opens using a servo motor
-- LCD display shows password and access status messages
+- The LCD display shows password and access-status messages
 - LEDs indicate correct or wrong access status
-- This simulates a basic smart access control system
+- This simulates a basic smart access-control system
 
 ### Automatic Garage Door
 
@@ -141,8 +145,11 @@ Example logic:
  LCD D6 ----------| D34                     |
  LCD D7 ----------| D35                     |
                   +-------------------------+
+```
 
-Project Structure
+## Project Structure
+
+```text
 arduino-smart-home-system/
 │
 ├── smart_home_system.ino
@@ -154,56 +161,57 @@ arduino-smart-home-system/
 │   ├── internal_wiring.jpg
 │   └── solar_tracking_mechanism.jpg
 └── .gitignore
+```
 
-How to Run
+## How to Run
 
-Open smart_home_system.ino in the Arduino IDE
-Install the required Arduino libraries:
-Keypad
-Servo
-LiquidCrystal
-Connect the components according to the circuit description
-Select the correct board, for example Arduino Mega 2560
-Select the correct COM port
-Upload the code to the Arduino board
-Test the keypad, LCD display, sensors, servo motors, LEDs, fan, and light-dependent panel mechanism
+1. Open `smart_home_system.ino` in the Arduino IDE.
+2. Install the required Arduino libraries:
+   - `Keypad`
+   - `Servo`
+   - `LiquidCrystal`
+3. Connect the components according to `circuit_description.md`.
+4. Select the correct board, for example `Arduino Mega 2560`.
+5. Select the correct COM port.
+6. Upload the code to the Arduino board.
+7. Test the keypad, LCD display, sensors, servo motors, LEDs, fan, and light-dependent panel mechanism.
 
-Hardware Notes
+## Hardware Notes
 
-Use resistors with LEDs to protect them.
-Servo motors may need an external power supply if they require more current.
-The fan should be controlled through a transistor, relay, or motor driver module.
-The fan should not be powered directly from an Arduino digital pin.
-Connect all grounds together when using external power.
-The physical model was built as a prototype, so the wiring and mechanical structure can be improved in future versions.
+- Use resistors with LEDs to protect them.
+- Servo motors may need an external power supply if they require more current.
+- The fan should be controlled through a transistor, relay, or motor driver module.
+- The fan should not be powered directly from an Arduino digital pin.
+- Connect all grounds together when using external power.
+- The physical model was built as a prototype, so the wiring and mechanical structure can be improved in future versions.
 
-Skills Demonstrated
+## Skills Demonstrated
 
-Embedded C/C++ programming
-Digital and analog input handling
-Sensor integration
-Keypad input handling
-LCD display output
-Servo motor control
-Basic automation logic
-Hardware and software integration
-Testing and troubleshooting of an embedded system
-Building a physical mechatronic prototype
+- Embedded C/C++ programming
+- Digital and analog input handling
+- Sensor integration
+- Keypad input handling
+- LCD display output
+- Servo motor control
+- Basic automation logic
+- Hardware and software integration
+- Testing and troubleshooting of an embedded system
+- Building a physical mechatronic prototype
 
-What I Learned
+## What I Learned
 
-Programming an Arduino board using Embedded C/C++
-Reading values from analog and digital sensors
-Controlling LCD displays, LEDs, a fan, and servo motors
-Using a keypad for password input
-Building simple automation logic
-Connecting hardware and software in a mechatronic system
-Testing a physical prototype and improving the system step by step
+- Programming an Arduino board using Embedded C/C++
+- Reading values from analog and digital sensors
+- Controlling LCD displays, LEDs, a fan, and servo motors
+- Using a keypad for password input
+- Building simple automation logic
+- Connecting hardware and software in a mechatronic system
+- Testing a physical prototype and improving the system step by step
 
-Future Improvements
+## Future Improvements
 
-Improve cable management and internal wiring structure
-Improve password handling and security logic
-Add Bluetooth or Wi-Fi control
-Add temperature and light data monitoring
-Add a mobile or web dashboard for system status
+- Improve cable management and internal wiring structure
+- Improve password handling and security logic
+- Add Bluetooth or Wi-Fi control
+- Add temperature and light data monitoring
+- Add a mobile or web dashboard for system status
