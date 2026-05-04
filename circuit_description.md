@@ -65,3 +65,5 @@ If the light level is below the defined limit, the LED light turns on automatica
 - Servo motors may need an external power supply if they require more current.
 - Connect all grounds together when using external power.
 - The exact wiring can be adjusted depending on the available components.
+-  The fan should be controlled through a transistor, relay, or motor driver module.
+- The fan should not be powered directly from an Arduino digital pin.
