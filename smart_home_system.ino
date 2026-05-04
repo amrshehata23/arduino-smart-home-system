@@ -14,7 +14,7 @@
 
 #include <Keypad.h>
 #include <Servo.h>
-
+#include <string.h>
 // ----- Pin Configuration -----
 const int ldrPin = A0;
 const int tempPin = A1;
