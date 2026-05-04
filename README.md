@@ -1,8 +1,12 @@
 # Arduino Smart Home System
 
-This project is a physical Arduino-based smart home automation prototype. It combines sensors, LCD displays, servo motors, LEDs, a fan, a keypad, and embedded control logic inside a small smart-home model.
+This project is a physical Arduino-based smart home automation prototype developed as an academic mechatronics project. It combines sensors, LCD display output, servo motors, LEDs, a fan, a keypad, and embedded control logic inside a small smart-home model.
 
 The system demonstrates basic embedded systems and mechatronics concepts by connecting hardware and software components in one complete automation project.
+
+## Academic Context
+
+This project was developed as Project 1 during my Mechatronics Engineering studies at Mansoura University. The goal was to build a physical smart-home prototype and apply embedded systems, sensors, actuators, and automation logic in a practical mechatronic system.
 
 ## Main Features
 
@@ -10,19 +14,20 @@ The system demonstrates basic embedded systems and mechatronics concepts by conn
 
 - A keypad is used to enter a password
 - If the correct password is entered, the door opens using a servo motor
-- LCD display shows system messages such as password input and access status
+- LCD display shows password and access status messages
 - LEDs indicate correct or wrong access status
 - This simulates a basic smart access control system
 
 ### Automatic Garage Door
 
-- Motion/IR sensors are used to detect movement near the garage
+- A motion sensor detects movement near the garage
 - When movement is detected, the garage door opens automatically using a servo motor
+- The garage closes again automatically after a defined time
 - This simulates a simple automatic garage system
 
 ### Temperature-Based Fan Control
 
-- A temperature sensor measures the surrounding temperature
+- An LM35 temperature sensor measures the surrounding temperature
 - If the temperature is higher than the defined limit, the fan turns on automatically
 - When the temperature returns to a normal range, the fan turns off
 - This simulates basic automatic climate control
@@ -30,19 +35,19 @@ The system demonstrates basic embedded systems and mechatronics concepts by conn
 ### Automatic Light Control
 
 - An LDR light sensor measures the surrounding light level
-- If the environment becomes dark, LEDs turn on automatically
-- If there is enough light, LEDs turn off
+- If the environment becomes dark, the LEDs turn on automatically
+- If there is enough light, the LEDs turn off
 - This simulates automatic day/night lighting control
 
 ### Light-Dependent Solar Tracking Concept
 
-- Light sensors are used to detect the direction of stronger light
-- A motorized mechanism changes the panel direction based on light conditions
+- Two LDR sensors are used to compare light intensity from two directions
+- A servo-controlled mechanism changes the panel direction based on the stronger light source
 - This simulates a simple solar-tracking concept for improving light exposure
 
 ## Project Demonstration
 
-This project was implemented as a real physical prototype. The model includes a keypad access system, LCD status displays, automatic lighting, temperature-based fan control, servo-controlled doors, internal wiring, and a light-dependent solar-tracking mechanism.
+This project was implemented as a real physical prototype. The model includes a keypad access system, LCD status display, automatic lighting, temperature-based fan control, servo-controlled doors, internal wiring, and a light-dependent solar-tracking mechanism.
 
 ### Final Smart Home Model
 
@@ -58,7 +63,7 @@ This project was implemented as a real physical prototype. The model includes a 
 
 ## Technologies Used
 
-- Arduino Uno
+- Arduino Mega 2560
 - Arduino IDE
 - Embedded C/C++
 - Sensor integration
@@ -67,19 +72,22 @@ This project was implemented as a real physical prototype. The model includes a 
 - Basic electronics
 - Embedded systems concepts
 
+> Note: The full-featured version is written for Arduino Mega 2560 because the project uses several sensors, a keypad, an LCD display, multiple servo motors, LEDs, and a fan. An Arduino Uno version is possible only with reduced features or additional modules such as an I/O expander.
+
 ## Required Arduino Libraries
 
 - Keypad
 - Servo
+- LiquidCrystal
 
 ## Components Used
 
-- Arduino Uno
+- Arduino Mega 2560
 - LM35 temperature sensor
-- LDR light sensor
-- IR/motion sensors
-- Keypad
-- LCD displays
+- LDR light sensors
+- Motion sensor
+- 4x4 keypad
+- LCD display
 - Servo motors
 - LEDs
 - Fan module
@@ -90,51 +98,50 @@ This project was implemented as a real physical prototype. The model includes a 
 
 ## System Logic
 
-The Arduino reads input signals from the keypad, temperature sensor, LDR sensor, and motion/IR sensors.
+The Arduino reads input signals from the keypad, temperature sensor, LDR sensors, and motion sensor.
 
-Based on these inputs, the Arduino controls output components such as servo motors, LEDs, LCD displays, a fan, and the solar-tracking mechanism.
+Based on these inputs, the Arduino controls output components such as servo motors, LEDs, LCD messages, a fan, and the light-dependent panel mechanism.
 
 Example logic:
 
 - If the correct password is entered, the door servo opens
+- If the wrong password is entered, an error message and LED feedback are shown
 - If motion is detected, the garage servo opens
 - If the temperature is above the limit, the fan turns on
 - If the light level is low, the LED lighting turns on
-- If stronger light is detected from one side, the panel mechanism changes direction
-
-## Project Demonstration
-
-This project was implemented as a real physical prototype. The model includes a keypad access system, LCD status displays, automatic lighting, temperature-based fan control, servo-controlled doors, internal wiring, and a light-dependent solar-tracking mechanism.
-
-### Final Smart Home Model
-
-![Final Smart Home Model](images/final_model_front.jpg)
-
-### Internal Wiring and Components
-
-![Internal Wiring](images/internal_wiring.jpg)
-
+- If stronger light is detected from one side, the solar-tracking servo changes direction
 
 ## Circuit Overview
 
 ```text
-                  +----------------------+
-                  |      Arduino Uno     |
-                  |                      |
- LDR Sensor ------| A0                   |
- LM35 Sensor -----| A1                   |
- Motion Sensor ---| D2                   |
-                  |                      |
- Keypad Rows -----| D3, D4, D5, D6       |
- Keypad Columns --| D7, D12, D13, A2     |
-                  |                      |
- Light LED -------| D8                   |
- Fan Module ------| D9                   |
- Door Servo ------| D10                  |
- Garage Servo ----| D11                  |
- Correct LED -----| A3                   |
- Wrong LED -------| A4                   |
-                  +----------------------+
+                  +-------------------------+
+                  |     Arduino Mega 2560   |
+                  |                         |
+ Room LDR --------| A0                      |
+ LM35 Sensor -----| A1                      |
+ Solar LDR Left --| A2                      |
+ Solar LDR Right -| A3                      |
+ Motion Sensor ---| D2                      |
+                  |                         |
+ Light LED -------| D5                      |
+ Fan Module ------| D6                      |
+ Correct LED -----| D7                      |
+ Wrong LED -------| D8                      |
+ Door Servo ------| D9                      |
+ Garage Servo ----| D10                     |
+ Solar Servo -----| D11                     |
+                  |                         |
+ Keypad Rows -----| D22, D23, D24, D25      |
+ Keypad Columns --| D26, D27, D28, D29      |
+                  |                         |
+ LCD RS ----------| D30                     |
+ LCD E -----------| D31                     |
+ LCD D4 ----------| D32                     |
+ LCD D5 ----------| D33                     |
+ LCD D6 ----------| D34                     |
+ LCD D7 ----------| D35                     |
+                  +-------------------------+
+
 Project Structure
 arduino-smart-home-system/
 │
@@ -154,11 +161,12 @@ Open smart_home_system.ino in the Arduino IDE
 Install the required Arduino libraries:
 Keypad
 Servo
+LiquidCrystal
 Connect the components according to the circuit description
-Select the correct board, for example Arduino Uno
+Select the correct board, for example Arduino Mega 2560
 Select the correct COM port
 Upload the code to the Arduino board
-Test the keypad, LCD displays, sensors, servo motors, LEDs, fan, and light-dependent panel mechanism
+Test the keypad, LCD display, sensors, servo motors, LEDs, fan, and light-dependent panel mechanism
 
 Hardware Notes
 
@@ -184,7 +192,7 @@ Building a physical mechatronic prototype
 
 What I Learned
 
-Programming an Arduino Uno using Embedded C/C++
+Programming an Arduino board using Embedded C/C++
 Reading values from analog and digital sensors
 Controlling LCD displays, LEDs, a fan, and servo motors
 Using a keypad for password input
