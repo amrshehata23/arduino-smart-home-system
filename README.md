@@ -102,6 +102,22 @@ Example logic:
 - If the light level is low, the LED lighting turns on
 - If stronger light is detected from one side, the panel mechanism changes direction
 
+## Project Demonstration
+
+This project was implemented as a real physical prototype. The model includes a keypad access system, LCD status displays, automatic lighting, temperature-based fan control, servo-controlled doors, internal wiring, and a light-dependent solar-tracking mechanism.
+
+### Final Smart Home Model
+
+![Final Smart Home Model](images/final_model_front.jpg)
+
+### Internal Wiring and Components
+
+![Internal Wiring](images/internal_wiring.jpg)
+
+### Solar Tracking Mechanism
+
+![Solar Tracking Mechanism](images/solar_tracking_mechanism.jpg)
+
 ## Circuit Overview
 
 ```text
