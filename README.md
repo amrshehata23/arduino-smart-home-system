@@ -114,9 +114,6 @@ This project was implemented as a real physical prototype. The model includes a 
 
 ![Internal Wiring](images/internal_wiring.jpg)
 
-### Solar Tracking Mechanism
-
-![Solar Tracking Mechanism](images/solar_tracking_mechanism.jpg)
 
 ## Circuit Overview
 
